@@ -1,5 +1,5 @@
 type Query {
-  getUsers: [User]
+  users: [User]
   user(id: ID!): User
 }
 
