@@ -11,7 +11,7 @@ export class CreateUserInput {
 }
 
 export abstract class IMutation {
-    abstract createUser(CreateUserInput?: CreateUserInput): User | Promise<User>;
+    abstract createUser(createUserInput?: CreateUserInput): User | Promise<User>;
 }
 
 export abstract class IQuery {
