@@ -4,6 +4,7 @@ import { UsersService } from './users.service';
 import { User } from '../graphql.schema';
 import { CreateUserDto } from './dto/create-user.dto';
 import { PubSub } from 'graphql-subscriptions';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 const pubSub = new PubSub()
 
@@ -26,6 +27,11 @@ export class UsersResolvers {
     const createUser = await this.usersService.create(user);
     pubSub.publish('createUser', { catCreated: createUser });
     return createUser;
+  }
+
+  @Mutation('updateUser')
+  async update(@Args('updateUserInput') user: UpdateUserDto): Promise<User> {
+    return await this.usersService.update(user);
   }
 
   @Subscription('userCreated')

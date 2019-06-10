@@ -10,8 +10,16 @@ export class CreateUserInput {
     age?: number;
 }
 
+export class UpdateUserInput {
+    id: number;
+    name?: string;
+    age?: number;
+}
+
 export abstract class IMutation {
     abstract createUser(createUserInput?: CreateUserInput): User | Promise<User>;
+
+    abstract updateUser(updateUserInput?: UpdateUserInput): User | Promise<User>;
 }
 
 export abstract class IQuery {
